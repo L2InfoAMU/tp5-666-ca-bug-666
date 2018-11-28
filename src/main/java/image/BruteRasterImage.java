@@ -1,6 +1,9 @@
 package image;
 
 import javafx.scene.paint.Color;
+
+import static util.Matrices.getColumnCount;
+import static util.Matrices.getRowCount;
 import static util.Matrices.requiresNonNull;
 
 public class BruteRasterImage {
@@ -18,6 +21,9 @@ public class BruteRasterImage {
     public BruteRasterImage(Color[][] pixels) {
         requiresNonNull(pixels);
         this.pixels = pixels;
+        this.width = getColumnCount(pixels);
+        this.height = getRowCount(pixels);
+
     }
 
     //TODO implémenter les méthodes
