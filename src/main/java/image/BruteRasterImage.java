@@ -6,29 +6,48 @@ import static util.Matrices.getColumnCount;
 import static util.Matrices.getRowCount;
 import static util.Matrices.requiresNonNull;
 
-public class BruteRasterImage {
-    public Color color;
+public class BruteRasterImage implements Image {
+
     public int width;
     public int height;
     Color[][] pixels;
 
     public BruteRasterImage(Color color, int width, int height) {
-        this.color = color;
         this.width = width;
         this.height = height;
+        this.pixels = new Color[width][height];
+        for(int index=0; index<width;index++)
     }
 
-    public BruteRasterImage(Color[][] pixels) {
+    public BruteRasterImage(Color[][] colors) {
         requiresNonNull(pixels);
-        this.pixels = pixels;
-        this.width = getColumnCount(pixels);
-        this.height = getRowCount(pixels);
+        this.pixels = colors.clone();
+        this.width = getRowCount(pixels);
+        this.height = getColumnCount(pixels);
 
     }
+
+
+    //Implémentation des méthodes de l'interface
+    @Override
+    public Color getPixelColor(int x, int y) {
+        return pixels[x][y];
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    //Implémentation des méthodes propres à la classe BruteRasterImage
 
     //TODO implémenter les méthodes
+    public void createRepresentation(){
 
-
-
-
+    }
 }
