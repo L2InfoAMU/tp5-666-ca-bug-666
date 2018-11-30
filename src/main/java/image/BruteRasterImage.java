@@ -18,11 +18,11 @@ public class BruteRasterImage implements Image {
     }
 
     public BruteRasterImage(Color[][] colors) {
-        requiresNonNull(pixels);
-        requiresNonZeroDimensions(pixels);
+        requiresNonNull(colors);
+        requiresNonZeroDimensions(colors);
         this.pixels = colors.clone();
-        this.width = getRowCount(pixels);
-        this.height = getColumnCount(pixels);
+        this.width = pixels.length;
+        this.height = pixels[0].length;
 
     }
 
@@ -45,7 +45,6 @@ public class BruteRasterImage implements Image {
 
     //Implémentation des méthodes propres à la classe BruteRasterImage
 
-    //TODO implémenter les méthodes
     public void createRepresentation(){
        pixels = new Color[width][height];
     }
@@ -63,8 +62,8 @@ public class BruteRasterImage implements Image {
     }
 
     private void setPixelsColor(Color[][] pixels) {
-        for (int index = 0; index < getRowCount(pixels); index++) {
-            for (int secondIndex = 0; secondIndex < getColumnCount(pixels); secondIndex++) {
+        for (int index = 0; index < pixels.length; index++) {
+            for (int secondIndex = 0; secondIndex < pixels[0].length; secondIndex++) {
                 setPixelColor(pixels[index][secondIndex], index,secondIndex);
             }
         }
@@ -77,6 +76,5 @@ public class BruteRasterImage implements Image {
     protected void setHeight(int height){
         this.height = height;
     }
-
 
 }
