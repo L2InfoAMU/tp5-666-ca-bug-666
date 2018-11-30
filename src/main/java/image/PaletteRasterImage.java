@@ -3,6 +3,7 @@ package image;
 import javafx.scene.paint.Color;
 
 import java.util.List;
+import static util.Matrices.*;
 
 public class PaletteRasterImage implements Image{
     //Définition des attributs
@@ -16,13 +17,17 @@ public class PaletteRasterImage implements Image{
     public PaletteRasterImage(Color color, int width, int height) {
         this.width = width;
         this.height = height;
-
+        createRepresentation();
+        setPixelsColor(color);
     }
 
-    //TODO faire constructeur
-    //TODO FAIRE DES COIMMENTAIRES
-
     public PaletteRasterImage(Color[][] pixels){
+        requiresNonNull(pixels);
+        requiresNonZeroDimensions(pixels);
+        createRepresentation();
+        setPixelsColor(pixels);
+        this.width = pixels.length;
+        this.height = pixels[0].length;
 
     }
 
