@@ -19,30 +19,32 @@ public class PaletteRasterImage implements Image{
 
     }
 
+    //TODO faire constructeur
+    //TODO FAIRE DES COIMMENTAIRES
+
     public PaletteRasterImage(Color[][] pixels){
 
     }
 
     //Implémentation des méthodes de l'interface Image
-    //TODO modifier les méthodes pour avoir des retours corrects
     @Override
+
     public Color getPixelColor(int x, int y) {
-        return null;
+        return  palette.get(indexesOfColors[x][y]);
     }
 
     @Override
     public int getWidth() {
-        return 0;
+        return width;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return height;
     }
 
     //Implémentation des méthodes propres à PaletteRasterImage
 
-    //TODO implémenter les méthodes
 
     public void createRepresentation(){
         palette = null;
