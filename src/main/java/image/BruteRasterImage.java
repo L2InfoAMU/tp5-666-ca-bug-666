@@ -2,9 +2,7 @@ package image;
 
 import javafx.scene.paint.Color;
 
-import static util.Matrices.getColumnCount;
-import static util.Matrices.getRowCount;
-import static util.Matrices.requiresNonNull;
+import static util.Matrices.*;
 
 public class BruteRasterImage implements Image {
 
@@ -21,6 +19,7 @@ public class BruteRasterImage implements Image {
 
     public BruteRasterImage(Color[][] colors) {
         requiresNonNull(pixels);
+        requiresNonZeroDimensions(pixels);
         this.pixels = colors.clone();
         this.width = getRowCount(pixels);
         this.height = getColumnCount(pixels);
@@ -63,17 +62,19 @@ public class BruteRasterImage implements Image {
         }
     }
 
-    private void setPixelsColor(Color[][] pixels){
-        for(int index=0; index<width;index++){
-            for(int secondIndex = 0; secondIndex<height; secondIndex++){
+    private void setPixelsColor(Color[][] pixels) {
+        for (int index = 0; index < width; index++) {
+            for (int secondIndex = 0; secondIndex < height; secondIndex++) {
 
             }
         }
     }
 
-    public Color getPixelColor(int x, int y){
-        return pixels[x][y];
-
+    protected void setWidth(int width){
+        this.width = width;
     }
 
+    protected void setHeight(int height){
+        this.height = height;
+    }
 }
