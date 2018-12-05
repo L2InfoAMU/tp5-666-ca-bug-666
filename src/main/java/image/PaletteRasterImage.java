@@ -13,14 +13,11 @@ public class PaletteRasterImage extends RasterImage implements Image{
 
     //Implémentation des constructeurs
     public PaletteRasterImage(Color color, int width, int height) {
-        super(width, height);
-        setPixelsColor(color);
+        super(color, width, height);
     }
 
     public PaletteRasterImage(Color[][] pixels){
         super(pixels);
-        createRepresentation();
-        setPixelsColor(pixels);
     }
 
     //Implémentation des méthodes de l'interface Image
@@ -28,16 +25,6 @@ public class PaletteRasterImage extends RasterImage implements Image{
 
     public Color getPixelColor(int x, int y) {
         return  palette.get(indexesOfColors[x][y]);
-    }
-
-    @Override
-    public int getWidth() {
-        return width;
-    }
-
-    @Override
-    public int getHeight() {
-        return height;
     }
 
     //Implémentation des méthodes propres à PaletteRasterImage

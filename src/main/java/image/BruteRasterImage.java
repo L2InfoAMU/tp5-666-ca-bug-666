@@ -8,13 +8,11 @@ public class BruteRasterImage extends RasterImage implements Image{
     Color[][] pixels;
 
     public BruteRasterImage(Color color, int width, int height) {
-        super(width,height);
-        setPixelsColor(color);
+        super(color,width,height);
     }
 
     public BruteRasterImage(Color[][] pixels) {
         super(pixels);
-        this.pixels = pixels.clone();
     }
 
 

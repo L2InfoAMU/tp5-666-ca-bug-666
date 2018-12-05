@@ -9,9 +9,10 @@ public abstract class RasterImage implements Image {
     public int width;
     public int height;
 
-    public RasterImage(int width, int height) {
+    public RasterImage(Color color, int width, int height) {
         this.width = width;
         this.height = height;
+        setPixelsColor(color);
     }
 
     public RasterImage(Color[][] pixels){
@@ -20,6 +21,7 @@ public abstract class RasterImage implements Image {
         this.width = pixels.length;
         this.height = pixels[0].length;
         createRepresentation();
+        setPixelsColor(pixels);
     }
 
     public int getWidth() {
