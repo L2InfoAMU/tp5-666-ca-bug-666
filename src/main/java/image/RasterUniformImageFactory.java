@@ -24,6 +24,8 @@ public class RasterUniformImageFactory implements ImageFactory {
                 throw new NotSupportedException(rasterImageType + " is not supported");
             case PALETTE:
                 return new PaletteRasterImage(color, width, height);
+            case SPARSE :
+                return new SparseRasterImage(color, width, height);
         }
     }
 }
