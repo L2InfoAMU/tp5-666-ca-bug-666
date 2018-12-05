@@ -4,20 +4,16 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
-import static util.Matrices.*;
 
 public class PaletteRasterImage extends RasterImage implements Image{
     //Définition des attributs
 
-    public int width;
-    public int height;
     int[][] indexesOfColors;
     List<Color> palette;
 
     //Implémentation des constructeurs
     public PaletteRasterImage(Color color, int width, int height) {
         super(width, height);
-        createRepresentation();
         setPixelsColor(color);
     }
 
@@ -58,19 +54,4 @@ public class PaletteRasterImage extends RasterImage implements Image{
         indexesOfColors[x][y]=palette.indexOf(color);
     }
 
-    protected void setPixelsColor(Color color){
-        for(int index=0; index<width;index++){
-            for(int secondIndex = 0; secondIndex<height; secondIndex++){
-                setPixelColor(color,index,secondIndex);
-            }
-        }
-    }
-
-    protected void setPixelsColor(Color[][] pixels) {
-        for (int index = 0; index < pixels.length; index++) {
-            for (int secondIndex = 0; secondIndex < pixels[0].length; secondIndex++) {
-                setPixelColor(pixels[index][secondIndex], index, secondIndex);
-            }
-        }
-    }
 }
