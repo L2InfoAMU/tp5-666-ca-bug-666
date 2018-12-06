@@ -16,7 +16,6 @@ public class VectorImage implements Image {
         this.height = height;
     }
 
-
     @Override
     public Color getPixelColor(int x, int y) {
         for(Shape shape : shapes){
@@ -43,6 +42,5 @@ public class VectorImage implements Image {
     protected void setHeight(int height){
         this.height = height;
     }
-
 
 }
